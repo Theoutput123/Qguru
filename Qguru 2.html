@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Gurus -pioneers of Excellence</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f5f5f5;
+            --text-color: #333;
+            --light-text: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--secondary-color);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            padding: 12px 20px;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .hero {
+            background: url('/api/placeholder/1200/600') center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .featured-gurus {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .guru-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .guru-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .guru-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .guru-info {
+            padding: 20px;
+        }
+        
+        .guru-info h3 {
+            margin-top: 0;
+        }
+        
+        .guru-info p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        .resource-list {
+            list-style: none;
+        }
+        
+        .resource-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--light-bg);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .resource-icon {
+            margin-right: 15px;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .resource-info h3 {
+            margin: 0 0 5px 0;
+        }
+        
+        .quiz-container {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+        
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .options label:hover {
+            background-color: #e9f7fe;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .profile-sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .profile-content {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .profile-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .profile-facts {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .profile-facts h3 {
+            margin-top: 0;
+        }
+        
+        .fact-list {
+            list-style: none;
+        }
+        
+        .fact-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .fact-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .profile-content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        
+        .reference-list {
+            list-style: decimal;
+            padding-left: 20px;
+        }
+        
+        .reference-list li {
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+            }
+            
+            .hero {
+                height: 300px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" style="font-size: 60px;">Quality Gurus</div>
+        <p style="font-size: 28px;">Pioneers of Excellence</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#gurus">Quality Gurus</a>
+                    <div class="dropdown-content">
+                        <a href="#deming">W. Edwards Deming</a>
+                        <a href="#juran">Joseph Juran</a>
+                        <a href="#crosby">Philip Crosby</a>
+                        <a href="#ishikawa">Kaoru Ishikawa</a>
+                        <a href="#taguchi">Genichi Taguchi</a>
+                        <a href="#feigenbaum">Armand Feigenbaum</a>
+                        <a href="#shingo">Shigeo Shingo</a>
+                    </div>
+                </li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#interactive">Interactive Learning</a></li>
+                <li><a href="#references">References</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Quality Management Pioneers</h1>
+                    <p>Exploring the lives and contributions of those who shaped modern quality practices</p>
+                    <a href="#gurus" class="btn">Discover the Gurus</a>
+                </div>
+            </div>
+            
+            <div class="container">
+                <h1>Welcome to Quality Gurus</h1>
+                <p>Quality management as we know it today is built upon the philosophies, theories, and methods developed by pioneering thinkers from around the world. This educational resource is dedicated to exploring the lives and contributions of these influential figures who revolutionized how organizations approach quality.</p>
+                
+                <p>From W. Edwards Deming's statistical process control to Kaoru Ishikawa's cause-and-effect diagrams, these quality gurus have provided frameworks and tools that continue to shape business practices globally. Their work spans decades and crosses industries, but all share a common goal: achieving excellence through systematic approaches to quality.</p>
+                
+                <h2>Featured Quality Gurus</h2>
+                <div class="featured-gurus">
+                    <div class="guru-card">
+                        <img src="/api/placeholder/400/300" alt="W. Edwards Deming" class="guru-img">
+                        <div class="guru-info">
+                            <h3>W. Edwards Deming</h3>
+                            <p>The Father of Quality Management</p>
+                            <a href="#deming" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guru-card">
+                        <img src="/api/placeholder/400/300" alt="Joseph Juran" class="guru-img">
+                        <div class="guru-info">
+                            <h3>Joseph Juran</h3>
+                            <p>Architect of Quality Management</p>
+                            <a href="#juran" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guru-card">
+                        <img src="/api/placeholder/400/300" alt="Kaoru Ishikawa" class="guru-img">
+                        <div class="guru-info">
+                            <h3>Kaoru Ishikawa</h3>
+                            <p>The Mind Behind Modern Quality Management</p>
+                            <a href="#ishikawa" class="read-more">Read More</a>
+                        </div>
+                    </div>
+
+		    <div class="guru-card">
+                        <img src="/api/placeholder/400/300" alt="Shigeo Shingo" class="guru-img">
+                        <div class="guru-info">
+                            <h3>Shigeo Shingo</h3>
+                            <p>The Mastermind Behind Lean Excellence</p>
+                            <a href="#shigeo" class="read-more">Read More</a>
+                        </div>
+                    </div>
+
+		    <div class="guru-card">
+                        <img src="/api/placeholder/400/300" alt="Philip Crosby" class="guru-img">
+                        <div class="guru-info">
+                            <h3>Philip Crosby</h3>
+                            <p>Champion of Zero Defects</p>
+                            <a href="#philip" class="read-more">Read More</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quality Gurus Profiles -->
+        <section id="gurus" class="container">
+            <h1>Quality Gurus Profiles</h1>
+            <p align="center">Learn about the visionaries who shaped the field of quality management through their innovative approaches, methodologies, and philosophies. Each profile explores their life, key contributions, and lasting impact on modern quality practices.</p>
+            
+            <!-- W. Edwards Deming Profile -->
+            <div id="deming" class="profile-container">
+                <div class="profile-sidebar">
+                    <img src="/C:/Users/Sanduni/Desktop/Quality gurus/dem1.jpg" alt="W. Edwards Deming" class="profile-image">
+                    <div class="profile-facts">
+                        <h3>Quick Facts</h3>
+                        <ul class="fact-list">
+                            <li><strong>Born:</strong> October 14, 1900</li>
+                            <li><strong>Died:</strong> December 20, 1993</li>
+                            <li><strong>Nationality:</strong> American</li>
+                            <li><strong>Key Contribution:</strong> 14 Points for Management, PDCA Cycle</li>
+                            <li><strong>Notable Work:</strong> "Out of the Crisis" (1982)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <h2>W. Edwards Deming</h2>
+<p align="justify">W. Edwards Deming was a visionary statistician and management consultant whose pioneering work in quality control transformed industries worldwide. His development of the PDCA Cycle and his 14 Points for Management laid the foundation for Total Quality Management (TQM) and Lean Manufacturing. Deming’s teachings helped companies, especially in Japan, revolutionize production processes, ensuring long-term success through continuous improvement and customer focus.</p>
+                    <h3>Biography</h3>
+                    <p align="justify">W. Edwards Deming was born on October 14, 1900, in Sioux City, Iowa, USA. He earned a Bachelor’s degree in electrical engineering from the University of Wyoming in 1921 and later obtained his Master's and Doctoral degrees in mathematical physics from Yale University. Deming initially worked in academia and the U.S. government, conducting statistical research and serving in World War II, where he contributed to military logistics and the development of statistical sampling methods.</p>
+                    <p align="justify">In the 1950s, Deming was invited to Japan by the Union of Japanese Scientists and Engineers (JUSE), where he introduced statistical quality control techniques. His teachings transformed Japanese industry, contributing to the country's rise as a global manufacturing powerhouse. Deming’s work emphasized the importance of continuous improvement, worker involvement, and leadership in achieving quality.</p>
+                    <p align="justify">He became widely known for his <b>14 Points for Management</b> and <b>the System of Profound Knowledge</b>, both of which laid the foundation for Total Quality Management (TQM). Deming continued to teach and consult around the world until his passing on December 20, 1993.</p>
+		<h3>Key Contributions</h3>
+                    <p align="justify">Deming's work and writings popularized the principles of quality control and management. His key contributions include:</p>
+                    <ul>
+                        <li><strong>Statistical Process Control (SPC):</strong> Deming introduced the concept of Statistical Process Control (SPC) to ensure that manufacturing processes were efficient, consistent, and capable of producing high-quality products. Using control charts, he demonstrated how statistical techniques could be used to monitor and improve production processes.</li>
+                        <br><li><strong>PDCA (Plan-Do-Check-Act) Cycle:</strong> Deming popularized the PDCA Cycle, a structured framework for continuous improvement. The cycle involves four stages:
+<dl><dt><dd><b>Plan:</b> Identify problems and opportunities for improvement.</dd>
+<dd><b>Do:</b> Implement changes on a small scale.</dd>
+<dd><b>Check:</b> Assess the results of the change.</dd>
+<dd><b>Act:</b> Standardize successful improvements.</dd>
+This model remains foundational in Lean and Six Sigma methodologies.
+</li><br>
+                        <li><strong>Deming's 14 Points for Management:</strong>These points outline Deming's philosophy of quality and management, emphasizing long-term improvement over short-term gains. <br>Some key points include:</li>
+                        <ol type="a"><li>Create constancy of purpose for improvement.</li>
+			<li>Adopt the new philosophy of continuous improvement.</li>
+			<li>Cease dependence on mass inspection; focus on quality built into the process.</li>
+			<li>Institute training on the job.</li>
+			<li>Drive out fear to promote a culture of collaboration.</li></ol>
+<br>
+<li><strong>System of Profound Knowledge (SoPK):</strong> Deming’s System of Profound Knowledge is a holistic framework designed to guide managers in understanding and improving their organizations. It consists of four parts:</li>
+                    <ol>
+                        <li><b>Appreciation for a System:</b> Understanding how components interact within a larger system</li>
+                        <li><strong>Knowledge about Variation:</strong> Understanding the difference between common and special causes</li>
+                        <li><strong>Theory of Knowledge:</strong> Understanding the need for theory and prediction</li>
+                        <li><strong>Psychology:</strong> Understanding human behavior and motivation</li>
+                    </ol>
+</ul>
+                    
+                    <h3>Major Theories and Models</h3>
+<li><b>The PDCA Cycle</b></li>
+<p align="justify">As mentioned earlier, the PDCA Cycle (Plan-Do-Check-Act) is Deming’s most enduring contribution. It provides a clear framework for continuous process improvement and is widely used in quality management and problem-solving.</p>
+<center><img src="/C:/Users/Sanduni/Desktop/Quality gurus/PDCA.jpg";width="300" height="200"><br></center>
+
+<li><b>The 14 Points for Management</b></li>
+<p align="justify">Deming’s 14 Points for Management are guidelines for transforming business operations and improving product quality. The points emphasize a commitment to continuous improvement, the elimination of defects, and a focus on long-term goals.</p><br>
+<li><b>The System of Profound Knowledge (SoPK)</b></li>
+<p align="justify">The System of Profound Knowledge is Deming's overarching framework, combining systems theory, statistics, and psychology to improve the quality of management decisions. It encourages organizations to recognize patterns of behavior and understand the system as a whole.</p>  
+<li><b>The Red Bead Experiment</b></li>
+<p align="justify">Deming used this experiment as a teaching tool to demonstrate how systems, rather than individuals, are often the root cause of problems in organizations. In this exercise, workers are tasked with pulling red beads from a container of white beads to simulate quality control, but they are unable to succeed due to the inherent system flaws.</p>  
+        
+                    
+                    <h3>Real-world Applications</h3>
+                  <li><b>Japan’s Post-WWII Manufacturing Renaissance</b></li>
+                    <p align="justify">Deming’s work with Japan is one of the most significant examples of his contributions to quality management. After World War II, Japan’s manufacturing industry was in disarray. Deming’s statistical methods, including control charts and the idea of quality improvement as a company-wide effort, helped Japanese companies such as Toyota, Honda, and Sony rise to global prominence by the 1960s. These practices laid the foundation for what would later be known as the Toyota Production System (TPS) and Lean Manufacturing.</p>
+ <li><b>Ford Motor Company (1980s)</b></li>
+<p align="justify">Ford’s turnaround in the 1980s is another example of Deming’s principles in action. Under the leadership of Donald Petersen, Ford adopted Deming’s 14 Points and the PDCA Cycle to revamp its quality practices. The results were impressive, with Ford dramatically improving product quality and reducing costs, becoming competitive in a global market dominated by Japanese manufacturers.</p>
+<li><b>Western Electric (Hawthorne Works)</b></li>
+<p align="justify">Deming’s early work in the U.S. included collaborating with Western Electric’s Hawthorne Works to study how workplace conditions affected productivity. His statistical techniques helped improve efficiency and reduce waste, laying the groundwork for his later contributions to quality management.</p>
+<li><b>The Deming Prize</b></li>
+<p align="justify">In recognition of his contributions to quality, the Deming Prize was established in 1951 in Japan. The prize is awarded annually to companies and individuals who have made significant contributions to the improvement of quality in business processes, and it continues to be one of the most prestigious awards in the field.</p>
+
+</div>
+            </div>
+            
+            <!-- Joseph Juran Profile -->
+            <div id="juran" class="profile-container">
+                <div class="profile-sidebar">
+                    <img src="/C:/Users/Sanduni/Desktop/Quality gurus/juran1.jpg" alt="Joseph Juran" class="profile-image">
+                    <div class="profile-facts">
+                        <h3>Quick Facts</h3>
+                        <ul class="fact-list">
+                            <li><strong>Born:</strong> December 24, 1904</li>
+                            <li><strong>Died:</strong> February 28, 2008</li>
+                            <li><strong>Nationality:</strong> Romanian-American</li>
+                            <li><strong>Key Contribution:</strong> Juran Trilogy, Pareto Principle in Quality Management</li>
+                            <li><strong>Notable Work:</strong> "Quality Control Handbook" (1951)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <h2>Joseph Juran</h2>
+<p align="justify">Joseph Juran was a pioneering figure in quality management, known for his Juran Trilogy, a comprehensive framework for quality planning, control, and improvement. His work helped shape the global quality movement, particularly in post-WWII Japan, where his teachings influenced major industries like Toyota and Sony. Juran's emphasis on leadership, cultural change, and the Pareto Principle revolutionized how organizations approach quality, making him a key architect of modern Total Quality Management (TQM).</p>
+                    <h3>Biography</h3>
+                    <p align="justify">Joseph Juran was born on December 24, 1904, in Romania and immigrated to the United States at the age of 5. He earned a Bachelor’s degree in electrical engineering from University of Minnesota in 1924 and later a Master’s degree in the same field. Juran’s early career included work as an engineer and later as a consultant, focusing on improving quality processes.</p>
+<p align="justify">Juran’s most influential career phase began in the 1940s, when he joined Western Electric and was instrumental in introducing quality control concepts that were to have a lasting impact on manufacturing industries. He is best known for creating the Juran Trilogy and his emphasis on quality management as an organization-wide effort.</p>
+<p align="justify">Juran’s work extended globally, and he played a significant role in the quality revolution that took place in Japan after World War II. Like Deming, he helped Japanese companies improve their quality control systems, and his impact on their post-war recovery was profound. Juran continued to teach and consult on quality management practices until his death in 2008.<br></p>
+
+                    <h3>Key Contributions</h3>
+                    <p align="justify">Juran made several significant contributions to the field of quality management:</p>
+                    <ul>
+                        <li><strong>Juran Trilogy:</strong> <br><p align="justify">Juran is most famous for developing the Juran Trilogy, a framework that emphasizes three main components for managing quality:Quality Planning, Quality Control and Quality Improvement</p>
+                 
+             
+<li><strong>The Pareto Principle (80/20 Rule):</strong> <br><p align="justify">Joseph Juran popularized the Pareto Principle, which asserts that in many situations, roughly 80% of problems come from 20% of causes.</p>
+<li><strong>Emphasis on Leadership and Culture Change:</strong> <br><p align="justify">Unlike other quality pioneers, Juran emphasized the role of leadership and cultural change in achieving quality improvement. He argued that quality improvement requires the commitment of management and a cultural shift toward quality at all levels of the organization, not just the shop floor.</p>
+<li><strong>The "Juran Quality Handbook":</strong> <br><p align="justify">The Juran Quality Handbook, first published in 1951, is one of the most widely cited works in quality management. It provided comprehensive guidance on implementing quality management principles across industries, making it a go-to reference for quality professionals.</p>                   
+
+                    <h3>Major Theories and Models</h3>
+                    <li><strong>Juran Trilogy:</strong><p align="justify">The Juran Trilogy is a comprehensive approach to managing quality that consists of three interrelated processes:</p>
+                    <dl>
+	<dd><b>Quality Planning-</b> Setting up systems that can ensure quality right from the start. Juran believed in planning for quality at every stage, from design to delivery.</dd>
+	<dd><b>Quality Control-</b> Ensuring products and services meet the set quality standards through ongoing monitoring, testing, and evaluation.</dd>
+	<dd><b>Quality Improvement-</b> Continuously improving processes through data-driven analysis and problem-solving.</dd><br>
+</dl> 
+<center><img src="/C:/Users/Sanduni/Desktop/Quality gurus/trilogy.jpg";width="300" height="200"></center>
+<li><strong>The Pareto Principle:</strong><p align="justify">The Pareto Principle (80/20 Rule), popularized by Juran, is a key tool in quality management. It posits that a small proportion of causes typically contribute to the majority of problems in any system, guiding organizations to focus on resolving the most significant issues first for maximum impact. He used this principle in quality management to help organizations focus on the most significant issues to improve their quality outcomes. The 80/20 Rule is frequently applied in quality control, problem-solving, and resource allocation.</p><br><br>
+<center><img src="/C:/Users/Sanduni/Desktop/Quality gurus/pareto.jpg";width="300" height="200"></center><br>                    
+<li><strong>Juran’s View on Quality as a Management Responsibility:</strong> <br><p align="justify">Juran emphasized that quality is not just the responsibility of the workers but is a responsibility of management. This shift in perspective was central to the development of Total Quality Management (TQM), as it called for management’s commitment to quality and for quality to be integrated into all areas of business operations.</p>               
+
+
+ <h3>Real-world Applications</h3>
+                 <li><strong>Japan’s Post-WWII Recovery:</strong></li>
+<p align="justify">Juran is perhaps most famous for his work with Japanese companies in the post-World War II period. Alongside W. Edwards Deming, he helped revolutionize Japan’s manufacturing processes. Juran focused on educating Japanese managers and engineers in quality planning, helping to establish frameworks for statistical quality control and continuous improvement.
+<br><br>His work in Japan led to the creation of quality management programs that resulted in the Japanese economy becoming a global powerhouse in the 1960s and 1970s, with companies like Toyota, Sony, and Panasonic adopting Juran’s methods.</p>
+
+<li><strong>The Ford Motor Company:</strong></li>
+<p align="justify">In the 1980s, Ford Motor Company applied Juran’s quality management principles under the leadership of CEO Donald Petersen. Ford adopted Juran’s Trilogy and the Pareto Principle to improve its processes, leading to significant improvements in product quality and a reduction in defects. This was part of Ford’s recovery and competitiveness against Japanese automakers.</p> 
+
+<li><strong>The Juran Institute and Global Impact:</strong><p align="justify">   
+<p align="justify">The Juran Institute, founded by Joseph Juran, became a leading provider of quality management training and consulting services. The Institute worked with companies worldwide to implement Total Quality Management systems, Six Sigma, and other quality initiatives. The Juran Institute’s contributions to industries such as healthcare, manufacturing, and education have helped shape modern quality management practices.</p>
+
+<li><strong>Motorola and Six Sigma:</strong><p align="justify"> 
+<p align="justify">Motorola’s adoption of Six Sigma in the 1980s, which sought to improve product quality by reducing defects to fewer than 3.4 per million, was influenced by Juran’s work on statistical process control. The company integrated Juran’s concepts on quality improvement, and Six Sigma became one of the most widely used quality management systems worldwide.</p>                    
+            </div>
+            </div>
+            
+            <!-- Philip Crosby Profile -->
+            <div id="crosby" class="profile-container">
+                <div class="profile-sidebar">
+                    <img src="/C:/Users/Sanduni/Desktop/Quality gurus/cros1.jpg" alt="Philip Crosby" class="profile-image">
+                    <div class="profile-facts">
+                        <h3>Quick Facts</h3>
+                        <ul class="fact-list">
+                            <li><strong>Born:</strong> June 18, 1926</li>
+                            <li><strong>Died:</strong> August 18, 2001</li>
+                            <li><strong>Nationality:</strong> American</li>
+                            <li><strong>Key Contribution:</strong> Zero Defects, Four Absolutes of Quality</li>
+                            <li><strong>Notable Work:</strong> "Quality is Free" (1979)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <h2>Philip Crosby</h2>
+<p align="justify">Philip Crosby was a pioneering figure in the field of quality management, best known for his Zero Defects philosophy and his focus on preventing defects rather than fixing them later. His work emphasized that quality is free when organizations prioritize prevention, leading to significant cost savings. Crosby’s Four Absolutes of Quality Management and his 14 Steps to Quality Improvement revolutionized industries worldwide, helping organizations achieve excellence and build a culture of continuous improvement.</p>      
+                
+                    <h3>Biography</h3>
+                        <p align="justify">Philip Crosby was born on June 18, 1926, in West Virginia, USA. He is best known for his work in quality management, and his ideas helped shape the way businesses approach quality assurance and improvement. Crosby’s career began in engineering and quality control, and he worked for several companies in the aerospace and manufacturing industries.
+<br><br>He is best known for his role as the Quality Manager at ITT Corporation, where he helped improve the company's processes and instilled quality as an integral part of the company culture. Crosby later became an influential consultant and author, and his book "Quality is Free" (1979) is regarded as one of the most influential works in quality management.
+<br><br>Crosby’s work in the field emphasized the concept that quality is a measurable factor that impacts costs and that organizations can achieve success by preventing defects rather than correcting them after they occur.
+<br><br>Philip Crosby passed away in 2001, but his principles remain integral to quality management practices in various industries today.</p>
+
+                    <h3>Key Contributions</h3>
+                    <p align="justify">Crosby's approach to quality management emphasized prevention rather than inspection and cure:</p>
+                    <ul>
+                        <li><strong>Zero Defects:</strong> <p align="justify">The concept that errors are not acceptable and can be prevented</p></li>
+                        <li><strong>Cost of Quality Concept:</strong> <p align="justify">Crosby introduced the idea that quality is free, meaning that the cost of achieving quality is far less than the cost of not achieving it.</p></li>
+			<li><strong>14 Steps to Quality Improvement:</strong> <p align="justify">Philip Crosby developed 14 steps that organizations could follow to improve their quality management practices. These steps included elements like commitment from leadership, quality planning, and employee involvement. The steps aimed to create a culture of continuous improvement, ensuring that quality was a priority across the entire organization.</p></li>
+			<li><strong>Four Absolutes of Quality:</strong> <p align="justify">A framework for understanding quality management</p></li>
+                        <li><strong>Quality is Free:</strong> <p align="justify">The idea that prevention costs less than correction</p></li>
+                        <li><strong>Quality Management Maturity Grid:</strong> <p align="justify">A tool for evaluating an organization's quality practices</p></li>
+                    </ul>
+                    
+                    <h3>Major Theories and Models</h3>
+                    <ul>
+                        <li><strong>The Zero Defects Model:</strong> <p align="justify"> The Zero Defects model is perhaps the cornerstone of Crosby’s philosophy. This model emphasizes that perfection is the goal and that no defects are acceptable. It encourages organizations to:</li>
+                        </p><br>
+				<ul>
+				<li>Prevent defects before they happen through careful planning, design, and monitoring.</li>
+				<li>Set clear expectations and standards for quality.</li>
+				<li>Empower employees to take ownership of quality and contribute to continuous improvement efforts.</li></ul>
+				<br>
+				<p align="justify">The Zero Defects model is also tied to a shift in culture, where employees at all levels are motivated to aim for zero defects rather than simply correcting errors after they occur.</p>
+				<center><img src="/C:/Users/Sanduni/Desktop/Quality gurus/zero.jpeg";width="300" height="200"></center>
+                		</ul><br>
+
+			<li><strong>The Four Absolutes of Quality Management:</strong> <p align="justify"> Crosby introduced the Four Absolutes of Quality Management, which form the foundation of his approach to quality:</p></li>
+			<br>
+				<ol>
+				<li><b>Quality is defined as conformance to requirements-</b><p align="justify"> Quality does not mean "good"; it means meeting the stated requirements.</p></li>
+				<li><b>The system for achieving quality is prevention-</b><p align="justify"> It’s more efficient and cost-effective to prevent defects from occurring than to detect and fix them later.</p></li>
+				<li><b>The performance standard must be Zero Defects-</b><p align="justify"> The only acceptable level of quality is no defects—this drives a culture of perfection.</p></li> 
+				<li><b>The measurement of quality is the price of nonconformance-</b><p align="justify"> The cost of poor quality is higher than the cost of implementing preventive measures.</p></li>
+                   		</ol>
+		
+			<br>
+			<li><strong>The Crosby Quality Management Maturity Grid:</strong><p align="justify">Crosby developed the Quality Management Maturity Grid to help organizations evaluate their quality improvement efforts. This grid categorizes organizations into five maturity levels:</p></li>
+			<ol><li><b>Uncertainty:</b> Quality issues are unaddressed or undefined.</li>
+			<li><b>Awareness:</b> Basic recognition of the importance of quality.</li>
+			<li><b>Consistency:</b> Some processes are in place to address quality, but efforts are not fully integrated.</li>
+			<li><b>Predictability:</b> Quality is systematically managed, and processes are predictable.</li>
+			<li><b>Optimization:</b> Quality management is fully integrated and continuously improved throughout the organization.</li>
+			</ol>
+			</ul>
+                    
+                   <h3>Real-world Applications</h3>
+			<ul><li><b>ITT Corporation</b></li><p align="justify"> Crosby’s work with ITT Corporation in the 1960s and 1970s is one of the most significant case studies of his methods. He implemented the Zero Defects philosophy and quality improvement initiatives at ITT, which resulted in improved product quality and significant cost savings for the company. His efforts helped ITT become more competitive in the global market by aligning its production processes with customer needs and focusing on defect prevention.</p>
+			<li><b>Motorola</b></li><p align="justify"> Motorola is another example of an organization that benefited from Crosby’s ideas, especially the Zero Defects philosophy and Cost of Quality concepts. Motorola used these principles to improve their manufacturing processes, and later implemented the Six Sigma program, which was influenced by Crosby's focus on reducing defects and focusing on process improvement.</p>
+			<li><b>Ford Motor Company</b></li><p align="justify"> Ford Motor Company also incorporated Crosby’s principles in its effort to improve product quality during the 1980s. By focusing on Zero Defects and establishing a quality culture, Ford was able to reduce defects, improve customer satisfaction, and increase its market share in the automotive industry.</p>
+			<li><b>The U.S. Army</b></li><p align="justify"> The U.S. Army also employed Crosby’s 14 Steps to Quality Improvement and the Zero Defects philosophy in an effort to improve operational efficiency and service quality. The Army implemented these practices in various areas, including maintenance and logistics, which resulted in higher performance and better quality services.</p></ul>
+                       </div>
+            </div>
+          
+
+  
+            <!-- Kaoru Ishikawa Profile -->
+            <div id="ishikawa" class="profile-container">
+                <div class="profile-sidebar">
+                    <img src="/C:/Users/Sanduni/Desktop/Quality gurus/ishi1.jpg" alt="Kaoru Ishikawa" class="profile-image">
+                    <div class="profile-facts">
+                        <h3>Quick Facts</h3>
+                        <ul class="fact-list">
+                            <li><strong>Born:</strong> July 13, 1915</li>
+                            <li><strong>Died:</strong> April 16, 1989</li>
+                            <li><strong>Nationality:</strong> Japanese</li>
+                            <li><strong>Key Contribution:</strong> Fishbone Diagram, Quality Circles</li>
+                            <li><strong>Notable Work:</strong> "What is Total Quality Control? The Japanese Way" (1985)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                <h2>Kaoru Ishikawa</h2>
+<p align="justify">Kaoru Ishikawa was a visionary Japanese quality management expert whose groundbreaking ideas transformed global industry standards. Best known for developing the Ishikawa (Fishbone) Diagram and introducing Quality Circles, he championed a people-first approach to quality control that empowered workers at every level. His work laid the foundation for modern Total Quality Management and continues to influence organizations worldwide.</p>
+                    
+		<h3>Biography</h3>
+                    <p align="justify">Kaoru Ishikawa was born on July 13, 1915, in Tokyo, Japan. He was the eldest of eight sons in a family that owned a manufacturing business. Ishikawa graduated from the University of Tokyo in 1939 with a degree in applied chemistry. He later earned a doctorate in engineering in 1960.
+<br><br>After working for Nissan Liquid Fuel Company (later Showa Denko) and serving in the Japanese Navy during World War II, Ishikawa became a professor at the University of Tokyo. He was heavily influenced by the quality management teachings of W. Edwards Deming and Joseph Juran, and played a key role in adapting their methods to Japanese industry.
+He passed away in 1989, but his legacy remains foundational in the fields of Total Quality Management (TQM) and quality control.</p>
+
+                    <h3>Key Contributions</h3>
+                    <p align="justify">Kaoru Ishikawa made several pivotal contributions to the field of quality management, particularly in Japan’s post-war industrial rise:</p>
+                    <ul>
+                        <li><strong>Cause-and-Effect (Fishbone) Diagram:</strong><p align="justify"> A visual tool for identifying root causes of problems</p></li>
+                        <li><strong>Quality Circles:</strong><p align="justify"> Small groups of workers who meet regularly to solve quality problems</p></li>
+                        <li><strong>Company-wide Quality Control:</strong><p align="justify"> Involving everyone from top management to frontline workers</p></li>
+                        <li><strong>Seven Basic Quality Tools:</strong><p align="justify"> Simple techniques for quality improvement</p></li>
+			<li><strong>Simplifying Quality Tools: </strong><p align="justify"> He was instrumental in promoting the use of simple tools for quality control such as histograms, Pareto charts, and especially the cause-and-effect diagram (also called the Ishikawa or fishbone diagram)</p></li>
+                    	<li><strong>Education and Training: </strong><p align="justify"> Ishikawa placed strong emphasis on continuous education and training in quality management principles, making Japan’s workforce one of the most quality-conscious in the world</p></li>
+                   </ul>
+ 
+
+
+                    <h3>Major Theories and Models</h3>
+                    <ul>
+                        <li><strong>Ishikawa (Fishbone) Diagram:</strong><p align="justify"> Also known as the cause-and-effect diagram, it is used to identify, explore, and display the possible causes of a specific problem or quality issue. It categorizes causes into key types like:<br>Man (people)<br>Machine (equipment)<br>Method (process)<br>Material (raw materials)<br>Measurement<br>Environment<br>This diagram is widely used in root cause analysis.</p></li>
+                        <li><strong>Quality Control Circles (QCC):</strong><p align="justify"> Ishikawa is credited with popularizing quality circles—small groups of workers who voluntarily meet to identify, analyze, and solve work-related problems. This helped democratize quality management and engage frontline employees.</p></li>
+                        <li><strong>Company-wide Quality Control:</strong><p align="justify"> This philosophy stresses that everyone in the organization is responsible for quality from top-level executives to line workers. It integrates customer focus, statistical methods, and employee involvement into a holistic management strategy.</p></li>
+                        <li><strong>Seven Basic Quality Tools:</strong><p align="justify"> Ishikawa promoted these tools as essential for quality control:</p></li>
+			<img src="/C:/Users/Sanduni/Desktop/Quality gurus/Qctool.png">
+                  	<br><p>These tools were designed to be easily understood and used by workers with minimal statistical training.</p>
+			</ul>
+                    
+
+
+                    <h3>Real-world Applications</h3>
+                    <p>Ishikawa's quality circles concept was widely adopted throughout Japanese industry in the 1960s and later spread globally.</p>
+                    <ul>
+                        <li><strong>Toyota Production System:</strong><p align="justify"> Though not directly developed by Ishikawa, Toyota adopted many principles consistent with his work such as continuous improvement (Kaizen) and worker involvement in quality control.<br>Quality circles became part of Toyota's broader Lean Manufacturing philosophy.</p></li>
+                        <li><strong>Nippon Telegraph and Telephone (NTT):</strong><p align="justify"> Ishikawa’s quality control strategies were used by NTT to improve service delivery and reduce communication errors.<br>NTT implemented quality circles to enhance employee collaboration and productivity.</p></li>
+                        <li><strong>Kawasaki Steel (now part of JFE Holdings):</strong><p align="justify"> Adopted quality control tools and practices based on Ishikawa’s teachings to improve operational efficiency.<br>Reported reduced defects and enhanced product quality as a result of widespread training and participation.</p></li>
+                        <li><strong>Japan’s Economic Transformation:</strong><p align="justify"> Ishikawa’s work was crucial in Japan's transformation into a global industrial leader in the post-WWII era.<br>His methods were used across multiple sectors—from automotive to electronics to telecommunications.</p></li>
+			</ul>
+                 </div>
+            </div>
+            
+            <!-- Genichi Taguchi Profile -->
+            <div id="taguchi" class="profile-container">
+                <div class="profile-sidebar">
+                    <img src="/C:/Users/Sanduni/Desktop/Quality gurus/genichi.jpg" class="profile-image">
+                    <div class="profile-facts">
+                        <h3>Quick Facts</h3>
+                        <ul class="fact-list">
+                            <li><strong>Born:</strong> January 1, 1924</li>
+                            <li><strong>Died:</strong> June 2, 2012</li>
+                            <li><strong>Nationality:</strong> Japanese</li>
+                            <li><strong>Key Contribution:</strong> Taguchi Methods, Quality Loss Function</li>
+                            <li><strong>Notable Work:</strong> "Introduction to Quality Engineering" (1986)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <h2>Genichi Taguchi</h2>
+			<p align="justify">Genichi Taguchi was a pioneering engineer and statistician who revolutionized quality management with his innovative approaches to robust design and design of experiments. Known for his Taguchi Method, he focused on minimizing product variation and improving performance under varying conditions, leading to higher consistency and reduced costs. Taguchi’s work continues to inspire industries worldwide in their quest for superior quality and efficiency, emphasizing that quality is built into the design process.</p>
+                   
+
+		    <h3>Biography</h3>
+                    <p align="justify">Genichi Taguchi was born on January 1, 1924, in Tokamachi, Japan. He was a Japanese engineer and statistician, best known for his work in the field of quality control and his development of techniques for improving product design, specifically through design of experiments (DOE) and robust design. He earned his degree in engineering from Tokyo University of Science and worked at several companies, including Toyoda Automatic Loom Works, and later, the Japanese Ministry of International Trade and Industry (MITI).
+<br><br>Taguchi was influenced by W. Edwards Deming and Joseph Juran in his early career but developed his unique approach to quality improvement. He is particularly known for creating methods that helped optimize product design to reduce variability and improve performance under varied conditions.
+<br><br>Taguchi's approach was widely adopted in both manufacturing and service industries. His focus on improving product quality and reducing costs led to significant advancements in statistical quality control and industrial optimization. He passed away in 2012, but his legacy lives on through his contributions to quality improvement practices worldwide.
+</p>
+
+                    <h3>Key Contributions</h3>
+                    <p>Taguchi's innovative contributions to quality engineering include:</p>
+                    <ul>
+                        <li><strong>Robust Design:</strong><p align="justify"> Genichi Taguchi’s most significant contribution to quality management is the concept of robust design, which focuses on improving the quality of products by minimizing variation due to external factors such as environmental conditions or manufacturing processes. Taguchi believed that designing products that are less sensitive to variations leads to higher consistency and performance.
+			<br><br>Robust design means designing products or processes in such a way that they consistently perform well under a range of operating conditions. This approach involves systematically experimenting with design variables to identify those that influence product performance and then optimizing them for robustness.
+			</p></li>
+                        <li><strong>Taguchi Loss Function:</strong><p align="justify"> Taguchi introduced the Loss Function, which quantifies the impact of product variation on customer satisfaction. According to the Taguchi Loss Function, the cost to society (and the consumer) increases as a product deviates from its target value, even if the product is still within the specified limits.
+			<br><br>The Loss Function is expressed as:</p></li>
+				<img src="/C:/Users/Sanduni/Desktop/Quality gurus/Taguchi.gif">
+			<p align="justify">The Loss Function emphasizes that quality is not just meeting specifications but rather minimizing deviation from target values and improving consistency. Taguchi’s idea was to minimize variation to create products that meet customer expectations while lowering costs over time.</p></li>
+                        <li><strong>Design of Experiments (DOE):</strong><p align="justify"> Taguchi is also credited with popularizing Design of Experiments (DOE) in industrial applications. DOE is a structured approach to experimentation that helps identify factors that significantly affect process variability and performance. Taguchi’s method involves factorial experiments to understand interactions between different factors affecting quality and using orthogonal arrays to test multiple factors simultaneously, reducing the number of experiments needed and making the process more efficient.</p></li>
+			<p align="justify">This method of experimentation allows organizations to design products and processes in a way that optimizes performance while minimizing defects, errors, and costs.</p></li><br>
+                       <li><strong>Signal-to-Noise Ratio:</strong> Measuring performance in the presence of noise factors</li>
+                    </ul>
+                    
+
+                    <h3>Major Theories and Models</h3>
+                    <ul>
+                        <li><strong>Orthogonal Arrays:</strong><p align="justify"> Orthogonal arrays are a key element of the Taguchi Method. These arrays allow for the simultaneous evaluation of multiple factors, helping to identify the most influential variables affecting performance. They are used to create experiments that are efficient, requiring fewer resources while still providing robust data for decision-making. This was a major breakthrough in statistical design, as it minimized the number of experimental trials while ensuring comprehensive coverage of all factors.</p></li>
+                        <li><strong>Signal-to-Noise (S/N) Ratio:</strong><p align="justify"> Taguchi developed the Signal-to-Noise (S/N) ratio, which is a measure used to quantify the variation in a product's performance under different conditions. The S/N ratio indicates how much variation in performance is caused by random factors (noise), relative to the desired signal (performance). The higher the S/N ratio, the less sensitive the product is to variation and the more robust it is. This concept is widely used in quality engineering to design products that perform consistently under different conditions.</p></li>
+                        	<center><img src="/C:/Users/Sanduni/Desktop/Quality gurus/sigratio.png"></center>
+                 	<li><strong>Taguchi Method:</strong><p align="justify"> The Taguchi Method refers to a systematic, experimental approach for improving quality by designing robust products and processes. The method involves three main steps:<br>
+			<ol><li>Planning the experiment to identify critical factors that affect quality.</li>
+			<li>Conducting the experiment using orthogonal arrays to ensure efficiency and coverage of all factors.</li>
+			<li>Analyzing the results to identify optimal settings that lead to consistent quality.</li></ol><br>
+The method focuses on design optimization to minimize variation and improve product reliability under varying conditions. Taguchi’s approach applies statistical methods to make improvements not just at the product level but also in the broader production process.</p></li>
+                    </ul>
+                    
+                    <h3>Real-world Applications</h3>
+                    <ul>
+                        <li><strong>Toyota:</strong><p align="justify"> The Toyota Motor Corporation is one of the most notable companies to have successfully applied Taguchi’s principles. Toyota used robust design and Taguchi’s methods of experimentation to improve the reliability and quality of its vehicles. Through the application of DOE and orthogonal arrays, Toyota was able to reduce product variation and optimize performance, leading to enhanced product consistency and higher customer satisfaction.</p></li>
+                        <li><strong>Motorola and Six Sigma:</strong><p align="justify"> Motorola, where Six Sigma was developed, also applied Taguchi’s methods to improve product design and manufacturing processes. Motorola used Taguchi’s techniques to reduce variability in product performance and to improve quality at every step of the design and production process. This contributed to their early success with Six Sigma, helping Motorola achieve its quality targets and reduce defects in its manufacturing processes.</p></li>
+                        <li><strong>Intel:</strong><p align="justify"> Intel Corporation, a leading semiconductor manufacturer, also adopted Taguchi’s robust design principles in the development of its microprocessors. By using Taguchi’s methods, Intel was able to create more reliable chips that performed consistently under various conditions. This led to higher yields in production and better overall product quality, helping Intel maintain its market leadership in the technology sector.</p></li>
+                        <li><strong>The Automotive Industry:</strong><p align="justify"> ITaguchi’s robust design principles have been applied widely in the automotive industry, particularly in improving engine performance, fuel efficiency, and vehicle durability. Automakers like Honda and General Motors have adopted Taguchi’s DOE and S/N ratio techniques to design vehicles that can perform reliably under different road and environmental conditions, resulting in products that meet consumer expectations for longevity and performance.</p></li>
+		    </ul>
+	    </div>
+            </div>
+            
+
+
+            <!-- Armand Feigenbaum Profile -->
+            <div id="feigenbaum" class="profile-container">
+                <div class="profile-sidebar">
+                    <img src="/C:/Users/Sanduni/Desktop/Quality gurus/arm1.jpg" class="profile-image">
+                    <div class="profile-facts">
+                        <h3>Quick Facts</h3>
+                        <ul class="fact-list">
+                            <li><strong>Born:</strong> April 6, 1922</li>
+                            <li><strong>Died:</strong> November 13, 2014</li>
+                            <li><strong>Nationality:</strong> American</li>
+                            <li><strong>Key Contribution:</strong> Total Quality Control, Cost of Quality</li>
+                            <li><strong>Notable Work:</strong> "Total Quality Control" (1951)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <h2>Armand Feigenbaum</h2>
+                    <h3>Biography</h3>
+                    <p align="justify">Dr. Armand Vallin Feigenbaum was born on April 6, 1922, in New York City. He earned his bachelor's degree in electrical engineering from Union College in 1942 and later completed his master's and doctoral degrees at the Massachusetts Institute of Technology (MIT).</p>
+                    <p align="justify">Feigenbaum began his professional career at General Electric (GE) in 1944, where he quickly rose to prominence in the field of quality control. By age 32, he was appointed as GE's worldwide Director of Manufacturing Operations and Quality Control, becoming the company's first executive-level quality control manager.</p>
+                    <p align="justify">In 1968, he founded General Systems Company, a global engineering firm providing design and implementation services for total quality systems. He served as its president and CEO until his death on November 13, 2014, at the age of 92.</p>
+		<p align="justify">Throughout his career, Feigenbaum served as the president of the American Society for Quality Control (now ASQ) and was an influential member of the International Academy for Quality. He received numerous accolades, including the National Medal of Technology and Innovation in 2008 from President George W. Bush, recognizing his lifetime contributions to quality management.</p>
+                    <h3>Key Contributions</h3>
+                    <p align="justify">Feigenbaum made several groundbreaking contributions to quality management:</p>
+                    <ul>
+                        <li><strong>Total Quality Control (TQC):</strong> </li>
+<p align="justify">Feigenbaum's most significant contribution was the development of the concept of "Total Quality Control" (later known as Total Quality Management or TQM). In 1951, he published his groundbreaking book, "Total Quality Control," which revolutionized quality management practices worldwide. The book has been translated into more than a dozen languages and is considered a seminal text in the field.</p>
+<p align="justify">Feigenbaum defined Total Quality Control as: </p>
+<p align="center"><i>"An effective system for integrating the quality development, quality maintenance, and quality improvement efforts of the various groups in an organization so as to enable production and service at the most economical levels which allow for full customer satisfaction."</i></p>
+<p align="justify">He emphasized that quality is not just the job of the quality department, but a responsibility shared by every department and every employee in the organization. He highlighted that quality should be embedded into every stage of the production and service process-from design to delivery. His approach encouraged organizations to move away from "quality by inspection" and instead develop systems that prevent problems before they occur. This made quality a strategic business goal, not just a technical issue.</p>
+
+
+
+                        <li><strong>Cost of Quality:</strong> 
+<p>Feigenbaum pioneered the "Cost of Quality" concept, categorizing quality costs into:</p>
+
+<ol type="1">
+<li><b>Prevention costs:</b> Planning, training, and process improvement</li>
+<li><b>Appraisal costs:</b> Inspection, testing, and quality audits</li>
+<li><b>Internal failure costs:</b> Scrap, rework, and downtime</li>
+<li><b>External failure costs:</b> Warranty claims, returns, and lost customers</li>
+</ol>
+<p> </p>
+
+                        <li><strong>Quality is Everyone's Responsibility:</strong></li>
+<p>Feigenbaum emphasized that quality control is not the sole responsibility of the quality department but requires the involvement of all organizational functions and employees. This holistic approach was revolutionary when most companies viewed quality as primarily the concern of the inspection department.</p>
+                    </ul>
+                    
+                    <h3>Major Theories and Models</h3>
+		    <ul>
+                        <li><strong>The Ten Benchmarks of Total Quality Control</strong> </li>
+<p> </p>
+				<ol><li>Quality is a company-wide process</li>
+				<li>Quality is what the customer says it is</li>
+				<li>Quality and cost are a sum, not a difference</li>
+				<li>Quality requires both individual and team zealotry</li>
+				<li>Quality is a way of managing</li>
+				<li>Quality and innovation are mutually dependent</li>
+				<li>Quality is an ethic</li>
+				<li>Quality requires continuous improvement</li>
+				<li>Quality is the most cost-effective, least capital-intensive route to productivity</li>
+				<li>Quality is implemented as a total system connected to customers and suppliers</li>
+				</ol>
+<br>
+			<li><strong>The Four Deadly Sins of Quality Management</strong> </li>
+			<p align="justify">Feigenbaum identified four major obstacles to quality improvement:</p>
+				<ol><li>Hoopla approach: Superficial enthusiasm without substantive action</li>
+				<li>Hidden-plant approach: Accepting inefficiencies and waste as inevitable</li>
+				<li>Inspection-oriented approach: Relying on inspection rather than prevention</li>
+				<li>Adversarial approach: Creating antagonistic relationships between departments</li></ol>
+<br>
+			<li><strong>The Feigenbaum Principle:</strong><p align="justify"> Feigenbaum’s Principle posits that quality control is a continuous process that involves everyone in the organization, and it must be integrated into every phase of production and operations. The principle is rooted in the belief that quality is not just the responsibility of the quality department, but rather, it should be a shared responsibility across all functions, from design to manufacturing to customer service.</p></li>
+                        <li><strong>The "Hidden Plant" Concept:</strong><p align="justify"> Feigenbaum introduced the concept of the "hidden plant", the portion of a facility's capacity devoted to redoing work that was incorrectly done the first time. He estimated that in many organizations, 15-40% of productive capacity was wasted due to poor quality, representing a tremendous opportunity for improvement.</p></li>
+                        <li><strong>Quality and cost are a sum, not a difference:</strong> Quality reduces total costs</li>
+                        <br><li><strong>The Quality Audit Concept:</strong><p align="justify"> Feigenbaum also popularized the concept of the quality audit—a systematic evaluation of quality systems and processes within an organization. This tool helped businesses assess the effectiveness of their quality management systems and identify areas for improvement.</p></li>
+                    </ul>
+                    
+                    <h3>Real-world Applications</h3>
+                    <ul> 
+			<li><strong>General Electric (GE):</strong><p align="justify"> Feigenbaum's concepts were widely applied by General Electric (GE) under the leadership of Jack Welch. GE adopted the TQC approach, making it a core part of its business strategy. GE utilized Feigenbaum's principles to drive continuous improvements across its manufacturing and service operations, leading to significant improvements in product quality and customer satisfaction.</p></li>
+                        <li><strong>Ford Motor Company:</strong><p align="justify"> Ford Motor Company used Feigenbaum’s principles of Total Quality Control to improve their production systems in the 1980s. By focusing on quality at every stage of production and involving employees in quality management, Ford was able to reduce defects and improve overall operational efficiency. The application of TQC in Ford’s manufacturing facilities contributed to the company’s revival during a challenging economic period.</p></li>
+                        <li><strong>Toyota:</strong><p align="justify"> While Toyota is better known for its own Toyota Production System (TPS), the principles of Total Quality Control influenced the company’s approach to quality management. Toyota’s emphasis on continuous improvement (Kaizen), employee involvement, and eliminating waste aligns closely with Feigenbaum’s ideas about integrating quality across all stages of the production process. Feigenbaum’s concepts have helped shape the way Toyota manages quality within its operations.</p></li>
+                        <li><strong>Boeing:</strong><p align="justify"> Boeing, a leading aerospace manufacturer, also embraced Feigenbaum's principles, particularly the idea that quality control should be embedded throughout the entire production cycle. By adopting Total Quality Control, Boeing was able to improve the reliability and performance of its aircraft while reducing costs associated with defects and customer dissatisfaction.</p></li>
+                    </ul>
+	    </div>
+            </div>
+            
+            <!-- Shigeo Shingo Profile -->
+            <div id="shingo" class="profile-container">
+                <div class="profile-sidebar">
+                    <img src="/C:/Users/Sanduni/Desktop/Quality gurus/shigeo.jpg" class="profile-image">
+                    <div class="profile-facts">
+                        <h3>Quick Facts</h3>
+                        <ul class="fact-list">
+                            <li><strong>Born:</strong> January 8, 1909</li>
+                            <li><strong>Died:</strong> November 14, 1990</li>
+                            <li><strong>Nationality:</strong> Japanese</li>
+                            <li><strong>Key Contribution:</strong> Poka-Yoke, SMED System</li>
+                            <li><strong>Notable Work:</strong> "Zero Quality Control: Source Inspection and the Poka-Yoke System" (1986)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <h2>Shigeo Shingo</h2>
+			<p align="justify">Shigeo Shingo was a pioneering Japanese industrial engineer whose groundbreaking work revolutionized manufacturing efficiency and quality. Best known for developing Poka-Yoke (error-proofing) and the Single-Minute Exchange of Dies (SMED) system, Shingo played a key role in shaping the Toyota Production System and modern Lean Manufacturing. His focus on eliminating waste, preventing defects, and streamlining production continues to influence industries around the world.</p>
+
+                    <h3>Biography</h3>
+                    <p align="justify">Shigeo Shingo was born on January 8, 1909, in Saga City, Japan. He studied mechanical engineering at Yamanashi Technical College and later worked for the Taiheiyo Heavy Industries and the Japanese government’s Industrial Training Institute. Throughout his career, Shingo focused on improving industrial efficiency and quality, becoming one of the most respected consultants in the field of production and operations.
+<br><br>Shingo is best known for his work with Toyota, where he collaborated with Taiichi Ohno, co-creator of the Toyota Production System (TPS). Shingo’s innovative methods significantly contributed to the development of Lean Manufacturing.
+<br><br>He passed away in 1990, but his methods and teachings continue to shape modern industrial engineering and operational excellence globally.
+</p>
+
+                    <h3>Key Contributions</h3>
+                    <p align="justify">Shingo made several revolutionary contributions to manufacturing and quality control:</p>
+                    <ul>
+                        <li><strong>Poka-Yoke (Mistake-Proofing):</strong><p align="justify"> Preventing defects through design and process improvements</p></li>
+                        <li><strong>SMED (Single-Minute Exchange of Die):</strong><p align="justify"> Reducing setup times for equipment</p></li>
+                        <li><strong>Zero Quality Control:</strong><p align="justify"> Achieving quality through source inspection and prevention</p></li>
+                        <li><strong>Just-In-Time (JIT) Production:</strong><p align="justify"> Contributing to the development of JIT at Toyota<p></li>
+			<li><strong>Separating Value-Added and Non-Value-Added Work:</strong><p align="justify"> His teachings helped companies identify waste and focus only on work that adds value for the customer.</p></li>
+                    	<li><strong>Immediate Feedback:</strong><p align="justify"> Providing instant information about quality issues</p></li>
+		    </ul>
+                    
+                    <h3>Major Theories and Models</h3>
+                    <p align="justify">Shingo's approach to quality and efficiency was based on several key concepts:</p>
+                    <ul>
+                        <li><strong>Poka-Yoke (Error-Proofing):</strong><p align="justify"> This model is designed to prevent errors before they happen. It uses devices or techniques that make it impossible or unlikely for errors to occur (e.g., shapes that only allow parts to be inserted one way, warning systems, etc.)</p></li>
+                        	<center><img src="/C:/Users/Sanduni/Desktop/Quality gurus/poka-yoke.jpg";width="300" height="200"></center>
+			<li><strong>Single-Minute Exchange of Dies (SMED):</strong><p align="justify"> A revolutionary approach to reducing setup times on machines from hours to minutes, making small batch production economically feasible and supporting lean manufacturing.</p></li>
+                        	<center><img src="/C:/Users/Sanduni/Desktop/Quality gurus/SMED.jpg";width="300" height="200"></center>
+			<li><strong>Zero Quality Control (ZQC):</strong><p align="justify"> A radical departure from traditional inspection-based quality systems. ZQC uses Poka-Yoke and source inspection to create a self-checking system, aiming to produce defect-free products from the start.</p></li>
+                    </ul>
+                    
+
+
+                    <h3>Real-world Applications</h3>
+                    <ul>
+                        <li><strong>Toyota Motor Corporation:</strong><p align="justify"> Shingo’s collaboration with Toyota led to the integration of SMED and Poka-Yoke into the Toyota Production System. These systems helped Toyota produce vehicles faster, with higher quality, and at lower cost than Western competitors.</p></li>
+ 			<li><strong>Hewlett-Packard (HP):</strong><p align="justify"> Adopted Shingo’s error-proofing techniques in the 1980s to reduce defects in electronics assembly, improving reliability and reducing returns.</p></li>
+  			<li><strong>Boeing:</strong><p align="justify"> Integrated elements of SMED and lean production in aircraft assembly processes, inspired by Shingo's teachings, to reduce production times and improve quality.</p></li>
+                   	<li><strong>Shingo Prize for Operational Excellence:</strong><p align="justify"> In recognition of his contributions, the Shingo Prize was established in 1988 by Utah State University. It is considered one of the most prestigious awards for organizations that excel in Lean practices and enterprise excellence.</p></li>
+              	   </ul>
+	    </div>
+            </div>
+        </section>
+        
+
+
+
+
+
+        <!-- Resources Section -->
+        <section id="resources" class="container">
+            <h1>Documents & Articles</h1>
+            <p>Explore our collection of resources related to quality management and the influential figures who shaped the field. These materials provide deeper insights into their philosophies, methodologies, and impact on modern business practices.</p>
+            
+            <ul class="resource-list">
+                <li class="resource-item">
+                    <div class="resource-icon">📄</div>
+                    <div class="resource-info">
+                        <h3>Deming's 14 Points for Management: A Modern Perspective</h3>
+                        <p>An analysis of how Deming's principles apply in today's business environment with case studies from contemporary organizations.</p>
+                        <a href="#" class="read-more">Download PDF</a>
+                    </div>
+                </li>
+                
+                <li class="resource-item">
+                    <div class="resource-icon">📄</div>
+                    <div class="resource-info">
+                        <h3>Comparing Juran and Crosby: Approaches to Quality Management</h3>
+                        <p>A comparative study examining the similarities and differences between Juran's and Crosby's quality management philosophies.</p>
+                        <a href="#" class="read-more">Download PDF</a>
+                    </div>
+                </li>
+                
+                <li class="resource-item">
+                    <div class="resource-icon">📄</div>
+                    <div class="resource-info">
+                        <h3>Ishikawa Diagrams in Problem Solving: A Practical Guide</h3>
+                        <p>A step-by-step guide to effectively using Ishikawa diagrams for root cause analysis in various business contexts.</p>
+                        <a href="#" class="read-more">Download PDF</a>
+                    </div>
+                </li>
+                
+                <li class="resource-item">
+                    <div class="resource-icon">📄</div>
+                    <div class="resource-info">
+                        <h3>The Evolution of Total Quality Management: From Feigenbaum to Modern Practices</h3>
+                        <p>Traces the development of TQM from its origins in Feigenbaum's work to contemporary applications.</p>
+                        <a href="#" class="read-more">Download PDF</a>
+                    </div>
+                </li>
+                
+                <li class="resource-item">
+                    <div class="resource-icon">📄</div>
+                    <div class="resource-info">
+                        <h3>Taguchi Methods in Product Design: Case Studies from the Electronics Industry</h3>
+                        <p>Examines practical applications of Taguchi's robust design methodology in electronic product development.</p>
+                        <a href="#" class="read-more">Download PDF</a>
+                    </div>
+                </li>
+                
+                <li class="resource-item">
+                    <div class="resource-icon">📄</div>
+                    <div class="resource-info">
+                        <h3>Implementing Poka-Yoke in Service Industries: Lessons from Shingo's Approach</h3>
+                        <p>Explores how mistake-proofing techniques can be adapted for service sector applications.</p>
+                        <a href="#" class="read-more">Download PDF</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        
+        <!-- Interactive Learning Section -->
+        <section id="interactive" class="container">
+            <h1>Interactive Learning</h1>
+            <p>Test your knowledge and deepen your understanding of quality management principles through our interactive learning tools.</p>
+            
+            <h2>Test Your Knowledge: Quality Gurus Quiz</h2>
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h3>1. Who developed the concept of "Zero Defects"?</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q1" value="a"> W. Edwards Deming
+                        </label>
+                        <label>
+                            <input type="radio" name="q1" value="b"> Joseph Juran
+                        </label>
+                        <label>
+                            <input type="radio" name="q1" value="c"> Philip Crosby
+                        </label>
+                        <label>
+                            <input type="radio" name="q1" value="d"> Kaoru Ishikawa
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h3>2. The PDCA (Plan-Do-Check-Act) cycle is associated with which quality guru?</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q2" value="a"> W. Edwards Deming
+                        </label>
+                        <label>
+                            <input type="radio" name="q2" value="b"> Armand Feigenbaum
+                        </label>
+                        <label>
+                            <input type="radio" name="q2" value="c"> Genichi Taguchi
+                        </label>
+                        <label>
+                            <input type="radio" name="q2" value="d"> Shigeo Shingo
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h3>3. Which quality guru created the cause-and-effect diagram, also known as the fishbone diagram?</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q3" value="a"> Joseph Juran
+                        </label>
+                        <label>
+                            <input type="radio" name="q3" value="b"> Kaoru Ishikawa
+                        </label>
+                        <label>
+                            <input type="radio" name="q3" value="c"> Philip Crosby
+                        </label>
+                        <label>
+                            <input type="radio" name="q3" value="d"> Genichi Taguchi
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h3>4. The concept of "Poka-Yoke" or mistake-proofing was developed by:</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q4" value="a"> Armand Feigenbaum
+                        </label>
+                        <label>
+                            <input type="radio" name="q4" value="b"> W. Edwards Deming
+                        </label>
+                        <label>
+                            <input type="radio" name="q4" value="c"> Shigeo Shingo
+                        </label>
+                        <label>
+                            <input type="radio" name="q4" value="d"> Joseph Juran
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h3>5. Who pioneered the concept of Total Quality Control?</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q5" value="a"> Armand Feigenbaum
+                        </label>
+                        <label>
+                            <input type="radio" name="q5" value="b"> Kaoru Ishikawa
+                        </label>
+                        <label>
+                            <input type="radio" name="q5" value="c"> Genichi Taguchi
+                        </label>
+                        <label>
+                            <input type="radio" name="q5" value="d"> Philip Crosby
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="btn" style="margin-top: 20px;">Submit Answers</button>
+            </div>
+            
+            <h2>Quality Management Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1940s</h3>
+                        <p>W. Edwards Deming begins developing statistical quality control methods. After WWII, he was invited to Japan to help rebuild Japanese industry.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1951</h3>
+                        <p>Armand Feigenbaum publishes "Total Quality Control." The Deming Prize is established in Japan.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1954</h3>
+                        <p>Joseph Juran conducts his first lecture in Japan, helping to advance the quality movement.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1960s</h3>
+                        <p>Kaoru Ishikawa develops the cause-and-effect diagram and promotes quality circles in Japan.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1970s</h3>
+                        <p>Shigeo Shingo develops the SMED system and collaborates with Toyota on Just-In-Time production.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1979</h3>
+                        <p>Philip Crosby publishes "Quality is Free," introducing his Zero Defects concept.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1980s</h3>
+                        <p>Genichi Taguchi's methods gain international recognition. Western companies begin widespread adoption of Japanese quality methods.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1987</h3>
+                        <p>ISO 9000 quality standards are published, incorporating many principles from the quality gurus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- References Section -->
+        <section id="references" class="container">
+            <h1>References & Further Reading</h1>
+            <p>Explore these authoritative sources to deepen your understanding of quality management principles and the contributions of key figures in the field.</p>
+            
+            <h2>Books by Quality Gurus</h2>
+            <ul class="reference-list">
+                <li>Deming, W. E. (1982). <em>Out of the Crisis</em>. MIT Center for Advanced Engineering Study.</li>
+                <li>Juran, J. M. (1951). <em>Quality Control Handbook</em>. McGraw-Hill.</li>
+                <li>Crosby, P. B. (1979). <em>Quality is Free: The Art of Making Quality Certain</em>. McGraw-Hill.</li>
+                <li>Ishikawa, K. (1985). <em>What is Total Quality Control? The Japanese Way</em>. Prentice-Hall.</li>
+                <li>Taguchi, G. (1986). <em>Introduction to Quality Engineering</em>. Asian Productivity Organization.</li>
+                <li>Feigenbaum, A. V. (1951). <em>Total Quality Control</em>. McGraw-Hill.</li>
+                <li>Shingo, S. (1986). <em>Zero Quality Control: Source Inspection and the Poka-Yoke System</em>. Productivity Press.</li>
+            </ul>
+            
+            <h2>Academic Articles and Research Papers</h2>
+            <ul class="reference-list">
+                <li>Martinez-Lorente, A. R., Dewhurst, F., & Dale, B. G. (1998). "Total quality management: origins and evolution of the term." <em>The TQM Magazine, 10</em>(5), 378-386.</li>
+                <li>Powell, T. C. (1995). "Total quality management as competitive advantage: A review and empirical study." <em>Strategic Management Journal, 16</em>(1), 15-37.</li>
+                <li>Hackman, J. R., & Wageman, R. (1995). "Total quality management: Empirical, conceptual, and practical issues." <em>Administrative Science Quarterly, 40</em>(2), 309-342.</li>
+                <li>Zairi, M. (1994). "Leadership in TQM implementation: Some case examples." <em>The TQM Magazine, 6</em>(6), 9-16.</li>
+                <li>Douglas, T. J., & Judge, W. Q. (2001). "Total quality management implementation and competitive advantage: The role of structural control and exploration." <em>Academy of Management Journal, 44</em>(1), 158-169.</li>
+            </ul>
+            
+            <h2>Online Resources</h2>
+            <ul class="reference-list">
+                <li>American Society for Quality (ASQ): <a href="https://asq.org/" target="_blank">https://asq.org/</a></li>
+                <li>The W. Edwards Deming Institute: <a href="https://deming.org/" target="_blank">https://deming.org/</a></li>
+                <li>Juran Global: <a href="https://www.juran.com/" target="_blank">https://www.juran.com/</a></li>
+                <li>The Shingo Institute: <a href="https://shingo.org/" target="_blank">https://shingo.org/</a></li>
+                <li>International Organization for Standardization (ISO): <a href="https://www.iso.org/" target="_blank">https://www.iso.org/</a></li>
+            </ul>
+            
+            <h2>Case Studies</h2>
+            <ul class="reference-list">
+                <li>Motorola's Six Sigma Implementation (based on Deming's and Juran's principles)</li>
+                <li>Toyota Production System (incorporating Shingo's and Ishikawa's methods)</li>
+                <li>Xerox's Leadership Through Quality Program (based on Crosby's approach)</li>
+                <li>Ford Motor Company's Consumer-Driven Six Sigma (applying Taguchi methods)</li>
+                <li>General Electric's Work-Out process (implementing Feigenbaum's Total Quality Control)</li>
+            </ul>
+        </section>
+        
+        <!-- About Us Section -->
+        <section id="about" class="container">
+            <h1>About Us</h1>
+            <p>We are a team of students passionate about quality management and its importance in modern business operations. This website was developed as part of an educational project to share information about the pioneering figures who have shaped quality practices globally.</p>
+            
+            <h2>Our Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="/api/placeholder/200/200" alt="Team Member 1" class="team-img">
+                    <h3>Team Member 1</h3>
+                    <p>Project Manager & Content Developer</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="/api/placeholder/200/200" alt="Team Member 2" class="team-img">
+                    <h3>Team Member 2</h3>
+                    <p>Content Researcher & Writer</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="/api/placeholder/200/200" alt="Team Member 3" class="team-img">
+                    <h3>Team Member 3</h3>
+                    <p>Web Designer & Developer</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="/api/placeholder/200/200" alt="Team Member 4" class="team-img">
+                    <h3>Team Member 4</h3>
+                    <p>Media Specialist & Editor</p>
+                </div>
+            </div>
+            
+            <h2>Project Background</h2>
+            <p>This website was developed as part of an assignment for a quality management course. Our objective was to create an educational resource that presents the contributions, philosophies, and impact of key figures in quality management in an engaging and interactive way.</p>
+            
+            <p>Through this project, we've gained a deeper understanding of quality management principles and the innovative thinkers who developed them. We hope this resource serves as a valuable learning tool for others interested in quality management concepts and practices.</p>
+            
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback about this website, please feel free to contact us at:</p>
+            <p><strong>Email:</strong> qualitygurus@example.edu</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Quality Gurus Project | Educational Use Only</p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#gurus">Quality Gurus</a>
+            <a href="#resources">Resources</a>
+            <a href="#interactive">Interactive Learning</a>
+            <a href="#references">References</a>
+            <a href="#about">About Us</a>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple quiz validation
+        document.querySelector('.quiz-container button').addEventListener('click', function() {
+            const answers = {
+                q1: 'c', // Philip Crosby
+                q2: 'a', // W. Edwards Deming
+                q3: 'b', // Kaoru Ishikawa
+                q4: 'c', // Shigeo Shingo
+                q5: 'a'  // Armand Feigenbaum
+            };
+            
+            let score = 0;
+            let results = [];
+            
+            for (const [question, answer] of Object.entries(answers)) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected) {
+                    if (selected.value === answer) {
+                        score++;
+                        results.push(`Question ${question.slice(1)}: Correct`);
+                    } else {
+                        results.push(`Question ${question.slice(1)}: Incorrect`);
+                    }
+                } else {
+                    results.push(`Question ${question.slice(1)}: Not answered`);
+                }
+            }
+            
+            alert(`Your score: ${score}/5\n\n${results.join('\n')}`);
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
